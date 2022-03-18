@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clubs</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <!-- Bootstrap CSS -->
+
+  <link rel="stylesheet" href="clubs.component.css">
+</head>
+
+<!-- partial -->
+
+<body>
+<h1>Clubübersicht</h1>
+<h2>SAISON 2021-2022</h2>
+<!-- partial:index.partial.html -->
+<!-- Font | Optional-->
+<div class="container">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed:300,400,700"/>
+  <!-- Wrapper | For this page - !!ignore-->
+  <div *ngFor="let player of players">
+
+    <div class="wrapper">
+      <!-- *** fut-player-card ***-->
+      <div class="fut-player-card">
+        <!-- Player Card Top-->
+        <div class="player-card-top">
+          <div class="player-master-info">
+            <div class="player-rating"><span>{{player.id}}</span></div>
+            <div class="player-position"><span>RW</span></div>
+            <div class="player-nation"></div>
+            <div class="player-club"></div>
+          </div>
+
+          <div class="player-picture"><img id="twitchProfileImg" src="{{player.imgUrl}}"
+                                           draggable="false"/>
+
+            <div class="player-extra"><span></span><span></span></div>
+          </div>
+        </div>
+        <!-- Player Card Bottom-->
+        <div class="player-card-bottom">
+          <div class="player-info">
+            <!-- Player Name-->
+            <div class="player-name"><span>{{player?.name}}</span></div>
+            <!-- Player Features-->
+            <div class="player-features">
+              <div class="player-features-col"><span>
+              <div class="player-feature-value">TWITCH</div>
+              <div class="player-feature-title"></div></span><span>
+              <div class="player-feature-value">DISCORD</div>
+              <div class="player-feature-title"></div></span><span>
+              <div class="player-feature-value">PSN</div>
+              <div class="player-feature-title"></div></span></div>
+              <div class="player-features-col"><span>
+              <div class="player-feature-value"><a href="https://www.twitch.tv/{{player.twitch}}">{{player.twitch}}</a></div>
+              <div class="player-feature-title"></div></span><span>
+              <div class="player-feature-value">{{player?.discord}}</div>
+              <div class="player-feature-title"></div></span><span>
+              <div class="player-feature-value">{{player?.psn}}</div>
+              <div class="player-feature-title"></div></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

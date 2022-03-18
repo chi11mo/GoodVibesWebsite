@@ -1,0 +1,14 @@
+.jumbotron{
+  background-color: white;
+}
+.navbar navbar-expand navbar-dark bg-dark{
+  color: red;
+}
+
+/* Modify the background color */
+.navbar-custom {
+  background-color: lightgreen;
+}
+.nav-item nav-link{
+  background-color: lightgreen;
+}

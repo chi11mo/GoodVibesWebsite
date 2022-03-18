@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+    crossorigin="anonymous"
+  />
+
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+
+  <title>Tabellen Manager</title>
+</head>
+<body>
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/adminplayer">SpielerAdmin</a>
+    <a class="nav-item nav-link" routerLink="/admingameschedule">SpielplanAdmin</a>
+    <a class="nav-item nav-link" routerLink="/admintable">TabelleAdmin</a>
+  </div>
+</nav>
+<div class="container" id="main-container">
+  <!-- League Table View -->
+  <section class="content-info">
+    <div class="container paddings-mini">
+      <div class="row">
+        <div class="col-lg-12">
+          <table
+            class="table-striped table-responsive table-hover result-point"
+          >
+            <thead class="point-table-head">
+            <tr>
+              <th class="text-left">No</th>
+              <th class="text-left">TEAM</th>
+              <th class="text-center">P</th>
+              <th class="text-center">W</th>
+              <th class="text-center">D</th>
+              <th class="text-center">L</th>
+              <th class="text-center">GS</th>
+              <th class="text-center">GA</th>
+              <th class="text-center">+/-</th>
+              <th class="text-center">PTS</th>
+            </tr>
+            </thead>
+            <tbody class="text-center">
+            <tr *ngFor="let club of clubs; let i = index" class="text-left">
+              <td class="text-left number">
+                {{ i + 1 }} <i class="fa fa-caret-up" aria-hidden="true"></i>
+              </td>
+              <td>
+                <img
+                  src="http://html.iwthemes.com/sportscup/run/img/clubs-logos/bra.png"
+                  alt="{{ club.team }}"
+                /><span>{{ club.team }}</span>
+              </td>
+              <td>{{ club.plays }}</td>
+              <td>{{ club.wins }}</td>
+              <td>{{ club.loses}}</td>
+              <td>{{ club.defines }}</td>
+              <td>{{ club.goals }}</td>
+              <td>{{ club.goalsAgainst }}</td>
+              <td>{{ club.goalDiff }}</td>
+              <td>{{ club.points }}</td>
+
+              <div class="card-body">
+                <div class="float-right btn-group btn-group-sm">
+                  <a (click)="onOpenModel(club, 'edit')" class="btn btn-primary tooltips" data-placement="top"
+                     data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                  <a (click)="onOpenModel(club, 'delete')" class="btn btn-secondary tooltips" data-placement="top"
+                     data-original-title="Delete"><i class="fa fa-times"></i></a>
+                </div>
+              </div>
+
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#addClubModal"
+      (click)="onOpenModel(null!, 'add')"
+    >
+      Add Club
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"
+    ></script>
+
+
+  </section>
+  <!-- Add Club Modal -->
+  <div
+    class="modal fade"
+    id="addClubModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="addClubModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addClubModalLabel">Add Club</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddClub(addForm)">
+            <div class="form-group">
+              <label for="team">Team</label>
+              <select name="team" type="text"
+                      ngModel
+                      class="form-control"
+                      id="team"
+                      placeholder="Team"
+                      required>
+                <option *ngFor="let player of players"
+                        [value]="player.name"
+                >
+                  {{player.name}}
+                </option>
+
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="plays">Gespielt</label>
+              <input
+                type="number"
+                ngModel
+                name="plays"
+                class="form-control"
+                id="plays"
+                placeholder="Gespielt"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="wins">Gewonnen</label>
+              <input
+                type="number"
+                ngModel
+                name="wins"
+                class="form-control"
+                id="wins"
+                placeholder="Gewonnen"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="loses">Verloren</label>
+              <input
+                type="number"
+                ngModel
+                name="loses"
+                class="form-control"
+                id="loses"
+                placeholder="Verloren"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="defines">Unentschieden</label>
+              <input
+                type="number"
+                ngModel
+                name="defines"
+                class="form-control"
+                id="defines"
+                placeholder="Unentschieden"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="goals">Tore</label>
+              <input
+                type="number"
+                ngModel
+                name="goals"
+                class="form-control"
+                id="goals"
+                placeholder="Tore"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="goalsAgainst">Gegentore</label>
+              <input
+                type="number"
+                ngModel
+                name="goalsAgainst"
+                class="form-control"
+                id="goalsAgainst"
+                placeholder="Gegentore"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="goalDiff">TorDiff</label>
+              <input
+                type="number"
+                ngModel
+                name="goalDiff"
+                class="form-control"
+                id="goalDiff"
+                placeholder="TorDiff"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="Points">Punkte</label>
+              <input
+                type="number"
+                ngModel
+                name="points"
+                class="form-control"
+                id="points"
+                placeholder="Punkte"
+                required
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                id="add-club-form"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                [disabled]="addForm.invalid"
+                type="submit"
+                class="btn btn-primary"
+              >
+                Save changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Edit Club Modal -->
+  <div
+    class="modal fade"
+    id="updateClubModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="clubEditModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateClubModalLabel">
+            Edit Club {{ editClub?.team }}
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm">
+            <div class="form-group">
+              <input
+                type="hidden"
+                ngModel="{{ editClub?.id }}"
+                name="ClubID"
+                class="form-control"
+                id="ClubID"
+                placeholder="ClubID"
+              />
+              <input
+                type="hidden"
+                ngModel="{{ editClub?.clubCode }}"
+                name="clubCode"
+                class="form-control"
+                id="clubCode"
+                placeholder="ClubCode"
+              />
+              <label for="team">Team</label>
+              <input
+                type="text"
+                ngModel="{{ editClub?.team }}"
+                name="team"
+                class="form-control"
+                id="team"
+                aria-describedby="emailHelp"
+                placeholder="Team"
+              />
+            </div>
+            <div class="form-group">
+              <label for="plays">Gespielt</label>
+              <input
+                type="number"
+                ngModel="{{ editClub?.plays }}"
+                name="plays"
+                class="form-control"
+                id="plays"
+                placeholder="Gespielt"
+              />
+            </div>
+            <div class="form-group">
+              <label for="wins">Gewonnen</label>
+              <input
+                type="number"
+                ngModel="{{ editClub?.wins }}"
+                name="wins"
+                class="form-control"
+                id="wins"
+                placeholder="Gewonnen"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="loses">Verloren</label>
+              <input
+                type="number"
+                ngModel="{{ editClub?.loses }}"
+                name="loses"
+                class="form-control"
+                id="loses"
+                placeholder="Verloren"
+              />
+            </div>
+            <div class="form-group">
+              <label for="defines">Unentschieden</label>
+              <input
+                type="number"
+                ngModel="{{ editClub?.defines }}"
+                name="defines"
+                class="form-control"
+                id="defines"
+                placeholder="Unentschieden"
+              />
+            </div>
+            <div class="form-group">
+              <label for="goals">Tore</label>
+              <input
+                type="number"
+                ngModel="{{ editClub?.goals }}"
+                name="goals"
+                class="form-control"
+                id="goals"
+                placeholder="Tore"
+              />
+            </div>
+            <div class="form-group">
+              <label for="goalsAgainst">Gegentore</label>
+              <input
+                type="number"
+                ngModel="{{ editClub?.goalsAgainst }}"
+                name="goalsAgainst"
+                class="form-control"
+                id="goalsAgainst"
+                placeholder="Gegentore"
+              />
+            </div>
+            <div class="form-group">
+              <label for="goalDiff">TorDiff</label>
+              <input
+                type="number"
+                ngModel="{{ editClub?.goalDiff }}"
+                name="goalDiff"
+                class="form-control"
+                id="goalDiff"
+                placeholder="TorDiff"
+              />
+            </div>
+            <div class="form-group">
+              <label for="Points">Punkte</label>
+              <input
+                type="number"
+                ngModel="{{ editClub?.points }}"
+                name="points"
+                class="form-control"
+                id="points"
+                placeholder="Punkte"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                id=""
+                data-dismiss="modal"
+                class="btn btn-secondary"
+              >
+                Close
+              </button>
+              <button
+                (click)="onUpdateClub(editForm.value)"
+                data-dismiss="modal"
+                class="btn btn-primary"
+              >
+                Save changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Delete Club Modal -->
+  <div
+    class="modal fade"
+    id="deleteClubModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="deleteClubModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteClubModalLabel">Delete Club</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Are you sure you want to delete club {{ deleteClub?.team }}?
+          </p>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              No
+            </button>
+            <button
+              (click)="onDeleteClub(deleteClub?.id!)"
+              class="btn btn-danger"
+              data-dismiss="modal"
+            >
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+.icon-bar {
+  width: 100%; /* Full-width */
+  overflow: auto; /* Overflow due to float */
+  position: fixed;
+  width: 100%;
+  padding: 20px;
+  bottom: 0;
+}
+
+.icon-bar a {
+  float: left; /* Float links side by side */
+  text-align: center; /* Center-align text */
+  width: 20%; /* Equal width (5 icons with 20% width each = 100%) */
+  padding: 12px 0; /* Some top and bottom padding */
+  transition: all 0.3s ease; /* Add transition for hover effects */
+  color: white; /* White text color */
+  font-size: 36px; /* Increased font size */
+}
+
+.icon-bar a:hover {
+  background-color: #3A13B9; /* Add a hover color */
+}
+
+.active {
+  background-color: #04AA6D; /* Add an active/current color */
+}
+#gameNav a img {
+
+  width: 200px;
+  height: 250px;
+}
+/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+h1, h2 {
+  color: white;
+  font-family: Trebuchet MS;
+  font-weight: bold;
+  text-align: center;
+}
+
+h1 {
+  font-size: 6rem;
+  margin-top: 30vh;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+/* Style the links inside the sidenav */
+#mySidenav a {
+  position: absolute; /* Position them relative to the browser window */
+  left: -70px; /* Position them outside of the screen */
+  transition: 0.3s; /* Add transition on hover */
+  padding: 15px; /* 15px padding */
+  width: 100px; /* Set a specific width */
+  text-decoration: none; /* Remove underline */
+  font-size: 20px; /* Increase font size */
+  color: white; /* White text color */
+  border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+}
+
+#mySidenav a:hover {
+  left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
+img {
+  float: right;
+}
+
+/* The about link: 20px from the top with a green background */
+#about {
+  top: 20px;
+  float: left;
+  /* background-color: #04AA6D;*/
+}
+
+#blog {
+  top: 120px;
+  left: -80px;
+  background-color: #2196F3; /* Blue */
+}
+
+#projects {
+  top: 180px;
+  left: -80px;
+  background-color: #f44336; /* Red */
+}
+
+#contact {
+  top: 240px;
+  left: -80px;
+  background-color: #555 /* Light Black */
+}
+h3{
+  color: white;
+  align-content: center;
+}
+
+
