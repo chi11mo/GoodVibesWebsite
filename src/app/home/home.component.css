@@ -75,8 +75,22 @@
     scroll-behavior: smooth;
   }
 }
+h1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+html,
+body,
+header,
+#intro {
+  height: 100%;
+}
+
 
 body {
+
   margin: 0;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);

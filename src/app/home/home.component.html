@@ -25,11 +25,48 @@
     rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="home.component.css">
+
 </head>
 <body>
 
+
 <section id="features">
   <div class="container px-5">
+    <!--Mask-->
+    <div id="intro" class="view">
+
+      <div class="mask rgba-black-strong">
+
+        <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+
+          <div class="row d-flex justify-content-center text-center">
+
+            <div class="col-md-10">
+
+              <!-- Heading -->
+              <h2 class="display-4 font-weight-bold white-text pt-5 mb-2">GOOD VIBES NATION</h2>
+
+              <!-- Divider -->
+              <hr class="hr-light">
+
+              <!-- Description -->
+              <h4 class="white-text my-4">Als  Fussballliebhaber wollte ich schon immer ein eigene online FussballLiga starten. Nun ist es endlich soweit und ich freue mich euch alle dazu einzuladen
+                (und ein Teil davon zu sein)
+                Natürlich kann ein gut organisiertes Liga/Cup nicht ganz ohne Regeln funktionieren. Deshalb hier ein paar Dinge auf die jeder Teilnehmer bitte Rücksicht nehmen soll damit wir alle ein geile Liga und viel Spaß haben werden.
+                (Dann kommen die Regeln die du möchtest)
+                Ebenso möchte ich  Fussballstream auf Twitch unterstützen. Deshalb kommen hier ein paar Streamer die ich supporten möchte</h4>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
     <div class="row gx-5 align-items-center">
       <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
         <div class="container-fluid px-5">
@@ -80,6 +117,85 @@
 </section>
 
 
+<!-- Footer-->
+<footer class="bg-black text-center py-5">
+  <div class="container px-5">
+    <div class="text-white-50 small">
+      <div class="mb-2">&copy; GOOD VIBES NATION 2022. All Rights Reserved.</div>
+      <a href="#!">Privacy</a>
+      <span class="mx-1">&middot;</span>
+      <a href="#!">Terms</a>
+      <span class="mx-1">&middot;</span>
+      <a href="#!">FAQ</a>
+    </div>
+  </div>
+</footer>
+<!-- Feedback Modal-->
+<div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-gradient-primary-to-secondary p-4">
+        <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Send feedback</h5>
+        <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body border-0 p-4">
+        <!-- * * * * * * * * * * * * * * *-->
+        <!-- * * SB Forms Contact Form * *-->
+        <!-- * * * * * * * * * * * * * * *-->
+        <!-- This form is pre-integrated with SB Forms.-->
+        <!-- To make this form functional, sign up at-->
+        <!-- https://startbootstrap.com/solution/contact-forms-->
+        <!-- to get an API token!-->
+        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+          <!-- Name input-->
+          <div class="form-floating mb-3">
+            <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+            <label for="name">Full name</label>
+            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+          </div>
+          <!-- Email address input-->
+          <div class="form-floating mb-3">
+            <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+            <label for="email">Email address</label>
+            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+          </div>
+          <!-- Phone number input-->
+          <div class="form-floating mb-3">
+            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+            <label for="phone">Phone number</label>
+            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+          </div>
+          <!-- Message input-->
+          <div class="form-floating mb-3">
+            <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+            <label for="message">Message</label>
+            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+          </div>
+          <!-- Submit success message-->
+          <!---->
+          <!-- This is what your users will see when the form-->
+          <!-- has successfully submitted-->
+          <div class="d-none" id="submitSuccessMessage">
+            <div class="text-center mb-3">
+              <div class="fw-bolder">Form submission successful!</div>
+              To activate this form, sign up at
+              <br />
+              <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+            </div>
+          </div>
+          <!-- Submit error message-->
+          <!---->
+          <!-- This is what your users will see when there is-->
+          <!-- an error submitting the form-->
+          <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+          <!-- Submit Button-->
+          <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->

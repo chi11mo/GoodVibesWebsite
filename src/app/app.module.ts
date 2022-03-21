@@ -16,6 +16,7 @@ import { ClubsComponent } from './clubs/clubs.component';
 import { AdminTableComponent } from './admin/admin-table';
 import { AdminPlayerComponent } from './admin/admin-player/admin-player.component';
 import { AdminScheduleComponent } from './admin/admin-schedule/admin-schedule.component';
+import { NewsComponent } from './news/news.component';
 
 
 
@@ -29,7 +30,8 @@ import { AdminScheduleComponent } from './admin/admin-schedule/admin-schedule.co
     ClubsComponent,
     AdminTableComponent,
     AdminPlayerComponent,
-    AdminScheduleComponent
+    AdminScheduleComponent,
+    NewsComponent
   ],
   imports: [
     appRoutingModule,

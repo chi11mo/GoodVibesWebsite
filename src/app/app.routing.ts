@@ -8,6 +8,7 @@ import {ClubsComponent} from "./clubs/clubs.component";
 import {AdminTableComponent} from "./admin/admin-table";
 import {AdminPlayerComponent} from "./admin/admin-player/admin-player.component";
 import {AdminScheduleComponent} from "./admin/admin-schedule/admin-schedule.component";
+import {NewsComponent} from "./news/news.component";
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'admintable', component: AdminTableComponent},
   {path: 'adminplayer', component: AdminPlayerComponent},
   {path: 'admingameschedule', component: AdminScheduleComponent},
+  {path: 'news', component: NewsComponent},
 
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
