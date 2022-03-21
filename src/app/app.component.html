@@ -1,11 +1,30 @@
-<!-- nav -->
-<nav class="navbar navbar-expand navbar-light bg-light"style="background-color: #e01515;">
-  <div class="navbar-nav">
-    <a class="nav-item nav-link" style="background-color: #e01515;" routerLink="/">Home</a>
-    <a class="nav-item nav-link" style="background-color: #e01515;" routerLink="/gameschedule">Spielplan</a>
-    <a class="nav-item nav-link" style="background-color:#e01515;" routerLink="/table">Tabelle</a>
-    <a class="nav-item nav-link" style="background-color: #e01515;" routerLink="/clubs">Clubs</a>
-    <a class="nav-item nav-link" style="background-color: #e01515;" routerLink="/admin">Admin</a>
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+  <div class="container px-5">
+    <a class="navbar-brand fw-bold" routerLink="/">Good Vibes Nation</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="bi-list"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+        <li class="nav-item"><a class="nav-link me-lg-3" routerLink="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link me-lg-3" routerLink="/gameschedule">Spielplan</a></li>
+        <li class="nav-item"><a class="nav-link me-lg-3" routerLink="/table">Tabelle</a></li>
+        <li class="nav-item"><a class="nav-link me-lg-3" routerLink="/clubs">Clubs</a></li>
+        <li class="nav-item"><a class="nav-link me-lg-3" routerLink="/admin">Admin</a></li>
+      </ul>
+      <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                        <span class="d-flex align-items-center">
+                            <i class="bi-chat-text-fill me-2"></i>
+                            <span class="small">Send Feedback</span>
+                        </span>
+      </button>
+    </div>
   </div>
 </nav>
 

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import{Schedule} from "./schedule";
+import {Component, OnInit} from '@angular/core';
+import {Schedule} from "./schedule";
 import {ScheduleService} from "./schedule.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Club} from "../admin-table/club";
@@ -13,13 +13,13 @@ import {ClubService} from "../admin-table/club.service";
 })
 export class AdminScheduleComponent implements OnInit {
 
-  public schedules : Schedule[] | undefined;
+  public schedules: Schedule[] | undefined;
 
   public editSchedule: Schedule | undefined;
   public deleteSchedule: Schedule | undefined;
 
-  constructor(private scheduleService: ScheduleService) { }
-
+  constructor(private scheduleService: ScheduleService) {
+  }
 
 
   ngOnInit() {
@@ -39,9 +39,8 @@ export class AdminScheduleComponent implements OnInit {
   }
 
 
-
   public onAddSchedule(addForm: NgForm): void {
-    document.getElementById('add-club-form')!.click();
+    document.getElementById('add-schedule-form')!.click();
     this.scheduleService.addSchedule(addForm.value).subscribe(
       (response: Schedule) => {
         console.log(response);
@@ -56,7 +55,7 @@ export class AdminScheduleComponent implements OnInit {
   }
 
 
-  public onUpdateSchedule(schedule:Schedule): void {
+  public onUpdateSchedule(schedule: Schedule): void {
     this.scheduleService.updateSchedule(schedule).subscribe(
       (response: Schedule) => {
         console.log(response);
@@ -96,7 +95,7 @@ export class AdminScheduleComponent implements OnInit {
       buttonSchedule.setAttribute('data-target', '#updateScheduleModal');
     }
     if (mode === 'delete') {
-      this.deleteSchedule =schedule;
+      this.deleteSchedule = schedule;
       buttonSchedule.setAttribute('data-target', '#deleteScheduleModal');
     }
     container!.appendChild(buttonSchedule);

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Schedule} from "../admin/admin-schedule/schedule";
+import {ScheduleService} from "../admin/admin-schedule/schedule.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-gameschedule',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamescheduleComponent implements OnInit {
 
-  constructor() { }
+  public schedules: Schedule[] | undefined;
 
-  ngOnInit(): void {
+
+
+  constructor(private scheduleService: ScheduleService) {
+  }
+
+
+  ngOnInit() {
+    this.getSchedules();
+  }
+
+  public getSchedules(): void {
+    this.scheduleService.getSchedule().subscribe(
+      (response: Schedule[]) => {
+        this.schedules = response;
+        console.log(this.schedules);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
 }
